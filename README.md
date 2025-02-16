@@ -14,27 +14,41 @@ Berikut adalah informasi terkait mata kuliah yang diambil:
 ---
 
 # Jawaban UAS_Pengolahan Citra_IFD51
+## 1. Deteksi Tepi dengan Menggunakan Model Roberts dan Operator Sobel
 
-1. **deteksi tepi dengan menggunakan model Robert dan Opertaor Sobel**  
 ![1_Hasil_robert_sobel](1_Hasil_robert_sobel.png)
 
-Gambar ini menunjukkan proses deteksi tepi menggunakan dua metode yaitu Roberts dan Sobel, yang keduanya merupakan teknik dalam pemrosesan citra untuk mengekstrak informasi tepi dari suatu gambar grayscale. Berikut adalah analisis hasil yang diperoleh.
+Gambar ini menunjukkan proses deteksi tepi menggunakan dua metode, yaitu **Roberts** dan **Sobel**, yang keduanya merupakan teknik dalam pemrosesan citra untuk mengekstrak informasi tepi dari suatu gambar grayscale.
 
-**a. Gambar Original (Citra Asli)**
+### a. Gambar Original (Citra Asli)
 
-Gambar ini menampilkan proses deteksi tepi pada sebuah citra grayscale menggunakan dua metode, yaitu Roberts dan Sobel. Deteksi tepi adalah teknik penting dalam pemrosesan citra yang bertujuan untuk mengekstrak informasi batas atau kontur suatu objek berdasarkan perubahan intensitas piksel. Gambar asli yang ditampilkan menunjukkan siluet pohon dengan banyak cabang yang bercabang-cabang, yang menciptakan tantangan tersendiri dalam deteksi tepi karena adanya variasi intensitas dan detail halus dalam struktur objek.a metode yang digunakan harus cukup sensitif terhadap perubahan halus dalam intensitas gambar.
+Gambar asli menampilkan siluet pohon dengan banyak cabang bercabang, yang menciptakan tantangan dalam deteksi tepi karena adanya variasi intensitas dan detail halus dalam struktur objek. Metode yang digunakan harus cukup sensitif terhadap perubahan halus dalam intensitas gambar untuk menghasilkan deteksi tepi yang optimal.
 
-**b. Hasil dengan Operator Roberts**
+### b. Hasil dengan Operator Roberts
 
-Pada gambar kedua, hasil deteksi tepi menggunakan operator Roberts terlihat. Operator ini bekerja dengan menghitung perbedaan intensitas piksel dalam arah diagonal menggunakan filter konvolusi 2x2. Dari hasil yang ditampilkan, terlihat bahwa metode Roberts menghasilkan tepi yang cukup tajam dan tipis, namun dengan banyak noise yang muncul dalam bentuk bintik-bintik kecil di sekitar gambar. Hal ini disebabkan oleh sensitivitas tinggi metode Roberts terhadap perubahan kecil dalam intensitas gambar. Dengan demikian, metode ini cenderung kurang optimal untuk gambar yang memiliki tekstur kompleks seperti cabang-cabang pohon yang halus, karena beberapa detail mungkin hilang atau terganggu oleh noise.
+Hasil deteksi tepi menggunakan operator **Roberts** terlihat pada gambar kedua. Operator ini bekerja dengan menghitung perbedaan intensitas piksel dalam arah diagonal menggunakan filter konvolusi 2x2. 
 
-**c. Hasil dengan Operator Sobel**
+- Metode ini menghasilkan tepi yang tajam dan tipis, namun dengan banyak noise berupa bintik-bintik kecil.
+- Sensitivitas tinggi terhadap perubahan kecil dalam intensitas gambar menyebabkan beberapa detail mungkin hilang atau terganggu oleh noise.
+- Kurang optimal untuk gambar dengan tekstur kompleks seperti cabang-cabang pohon yang halus.
 
-gambar ketiga menunjukkan hasil deteksi tepi menggunakan operator Sobel. Berbeda dengan Roberts, metode Sobel menghitung gradien intensitas dalam dua arah utama, yaitu horizontal dan vertikal, dengan menggunakan filter konvolusi 3x3. Hasilnya terlihat lebih halus dan lebih jelas dibandingkan dengan metode Roberts. Noise yang muncul juga lebih sedikit, sehingga garis-garis tepi dari cabang pohon tampak lebih menyatu dan lebih mudah diidentifikasi. Karena Sobel menangkap perubahan intensitas dalam dua arah, metode ini lebih efektif dalam mendeteksi tepi pada gambar dengan struktur kompleks dan perubahan gradien yang lebih lembut.
+### c. Hasil dengan Operator Sobel
 
-Dari perbandingan kedua metode ini, dapat disimpulkan bahwa operator Roberts lebih cocok untuk gambar dengan perubahan intensitas yang tajam dan kontras tinggi, sementara operator Sobel lebih baik untuk menangkap tepi pada gambar dengan variasi intensitas yang lebih kompleks. Dalam kasus gambar pohon ini, metode Sobel lebih direkomendasikan karena memberikan hasil deteksi tepi yang lebih bersih, lebih halus, dan lebih sedikit noise, sehingga lebih sesuai untuk objek yang memiliki banyak detail seperti cabang-cabang pohon yang saling bertumpuk.
+Gambar ketiga menunjukkan hasil deteksi tepi menggunakan operator **Sobel**. Berbeda dengan Roberts, metode Sobel menghitung gradien intensitas dalam dua arah utama, yaitu **horizontal dan vertikal**, dengan menggunakan filter konvolusi 3x3.
 
-# Perbandingan Operator Roberts dan Sobel
+- Hasil deteksi tepi lebih halus dan lebih jelas dibandingkan dengan metode Roberts.
+- Noise yang muncul lebih sedikit, sehingga garis-garis tepi tampak lebih menyatu dan lebih mudah diidentifikasi.
+- Karena menangkap perubahan intensitas dalam dua arah, metode ini lebih efektif untuk gambar dengan struktur kompleks dan perubahan gradien yang lebih lembut.
+
+## Kesimpulan
+
+Dari perbandingan kedua metode ini, dapat disimpulkan bahwa:
+
+- **Roberts** lebih cocok untuk gambar dengan perubahan intensitas yang tajam dan kontras tinggi.
+- **Sobel** lebih baik untuk menangkap tepi pada gambar dengan variasi intensitas yang lebih kompleks.
+- Dalam kasus gambar pohon ini, metode **Sobel lebih direkomendasikan** karena memberikan hasil deteksi tepi yang lebih bersih, lebih halus, dan lebih sedikit noise, sehingga lebih sesuai untuk objek dengan banyak detail seperti cabang-cabang pohon yang saling bertumpuk.
+
+## Perbandingan Operator Roberts dan Sobel
 
 Tabel berikut membandingkan dua operator deteksi tepi: **Roberts** dan **Sobel**.
 
@@ -45,17 +59,7 @@ Tabel berikut membandingkan dua operator deteksi tepi: **Roberts** dan **Sobel**
 | **Ketahanan terhadap perubahan intensitas halus** | Kurang baik (kehilangan detail kecil) | Baik (menangkap variasi intensitas) |
 | **Cocok untuk gambar** | Dengan tepi tajam dan perubahan kontras yang ekstrem | Dengan gradien kompleks dan objek dengan struktur detail |
 
-## Kesimpulan
-
-Dari hasil yang diperoleh, dapat disimpulkan bahwa:
-
-- **Roberts** lebih cocok untuk gambar dengan perubahan intensitas yang tajam dan kontras tinggi. Namun, metode ini kurang optimal untuk gambar yang memiliki struktur kompleks karena lebih rentan terhadap noise.
-
-- **Sobel** lebih unggul dalam menangkap variasi gradien dengan lebih baik, sehingga cocok untuk gambar dengan banyak detail seperti cabang pohon yang saling bertumpuk.
-
-
-
-2. **Segmentasi Citra Berbasis Clustering dengan K-Means**
+## 2. Segmentasi Citra Berbasis Clustering dengan K-Means
 
 Segmentasi citra adalah proses pemisahan suatu gambar menjadi beberapa bagian yang lebih bermakna untuk analisis lebih lanjut. Salah satu metode yang banyak digunakan dalam segmentasi citra adalah segmentasi berbasis clustering, yang bekerja dengan cara mengelompokkan piksel berdasarkan kemiripan fitur tertentu, seperti intensitas, warna, atau tekstur. Teknik ini memungkinkan gambar dibagi menjadi beberapa area yang memiliki karakteristik serupa sehingga mempermudah proses identifikasi objek atau pola dalam citra.
 
@@ -69,7 +73,7 @@ Meskipun memiliki banyak keuntungan, K-Means juga memiliki beberapa kelemahan. S
 
 Dengan memahami prinsip dasar dan cara kerja K-Means, kita dapat menggunakannya secara efektif dalam berbagai aplikasi segmentasi citra. Implementasi algoritma ini dalam bahasa pemrograman Python dapat dilakukan menggunakan pustaka scikit-learn, yang menyediakan fungsi KMeans untuk membagi piksel citra ke dalam beberapa kelompok secara otomatis.
 
-**Berikut hasil gambar segmentasi citra berbasis clustering dengan K-Means**
+### Berikut hasil gambar segmentasi citra berbasis clustering dengan K-Means
 
 ![2_Hasil_citra_Kmeans](2_Hasil_citra_Kmeans.png)
 
